@@ -116,7 +116,7 @@ export default {
             localStorage.token = this.getTokenValue(response.data);
             localStorage.role = this.getUserRole(response.data);
 
-            this.$router.push('/dashboard/')
+            this.push();
 
           }
         }).catch(error => {
@@ -135,7 +135,7 @@ console.log("Error:",err.message)
       }
         },
         push(){
-      this.$router.push("../agentAccount/dashboard")
+      this.$router.push("/dashboard/")
     },
     getTokenValue(tokenString) {
     const tokenArray = tokenString.split(' ')
