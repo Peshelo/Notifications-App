@@ -37,17 +37,17 @@
 
           <div class="flex items-center justify-between">
             <div class="flex items-center">
-              <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-500" />
+              <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-green-600 focus:ring-green-500" />
               <label for="remember-me" class="ml-2 block text-sm text-gray-900">Remember me</label>
             </div>
 
             <div class="text-sm">
-              <a href="#" class="font-medium text-sky-600 hover:text-sky-500">Forgot your password?</a>
+              <a href="#" class="font-medium text-green-600 hover:text-green-500">Forgot your password?</a>
             </div>
           </div>
 
           <div>
-            <button type="submit" class="flex w-full justify-center rounded-md border border-transparent bg-sky-700 py-3 px-4 text-md font-medium text-white shadow-sm hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign in</button>
+            <button type="submit" class="flex w-full justify-center rounded-md border border-transparent bg-green-700 py-3 px-4 text-md font-medium text-white shadow-sm hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Sign in</button>
             <!-- <label v-if="this.errored" class="text-red-400 text-center my-2 text-sm">{{ this.errors }}</label> -->
           </div>
         </form>

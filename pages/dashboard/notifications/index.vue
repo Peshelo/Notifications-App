@@ -8,6 +8,7 @@
 </template>
 
 <script setup>
+
    const {data,pending,error} = useFetch('http://localhost:8080/notifications')
 
 </script>

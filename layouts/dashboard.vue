@@ -9,3 +9,7 @@
     <!-- Bottom Bar -->
     </div>
 </template>
+
+<script setup>
+
+</script>
