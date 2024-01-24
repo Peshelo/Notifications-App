@@ -15,9 +15,14 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
     if (to.path === '/auth/login' || to.path === '/') {
       // alert("Login")
+      if (process.browser) {
+        window.localStorage.setItem('nuxt-color-mode','light')
+  
+    }
         // return
     }else{
       if (process.browser) {
+          window.localStorage.setItem('nuxt-color-mode','light')
           if (!window.localStorage.getItem('token')) {
             window.location = '/auth/login'
           }
