@@ -3,7 +3,7 @@
         <Header title="Dashboard" subTitle="Overal View"/>
         <!-- Stats Cards -->
         
-        <div v-if="!pending || !pendingUsers || pendingStatistics" class="grid grid-cols-4 max-md:grid-cols-2 max-lg:grid-cols-3 max-sm:grid-cols-1 gap-4 my-8">
+        <div v-if="!pending || !pendingUsers || !pendingStatistics" class="grid grid-cols-4 max-md:grid-cols-2 max-lg:grid-cols-3 max-sm:grid-cols-1 gap-4 my-8">
             <StatsCard link="/dashboard/notifications/" title="TOTAL NOTIFICATIONS" :value="statistics.totalNotifications" color="green"/>
             <StatsCard link="/dashboard/users/" title="ACTIVE USERS" :value="statistics.totalActiveUsers" color="green"/>
             <StatsCard link="/dashboard/users/" title="REGISTERED USERS" :value="statistics.totalActiveUsers" color="green"/>
@@ -23,8 +23,10 @@
 </template>
 
 <script setup>
-   const {data,pending,error,refresh} = useFetch('http://localhost:8080/notifications')
-   const {data:statistics,pending:pendingStatistics,error:errorStatistics,refresh:refreshStatistics} = useFetch('http://localhost:8080/statistics')
+const runTime = useRuntimeConfig()
+const apiUrl = runTime.public.apiBase
+   const {data,pending,error,refresh} = useFetch(`${apiUrl}/notifications`)
+   const {data:statistics,pending:pendingStatistics,error:errorStatistics,refresh:refreshStatistics} = useFetch(`${apiUrl}/statistics`)
 </script>
 
 <style lang="scss" scoped>

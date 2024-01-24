@@ -1,5 +1,5 @@
 <template>
-    <div class="shadow-xl border rounded-md p-4">
+    <div  class="shadow-xl border rounded-md p-4">
         <h1 class="text-xl my-2">{{ title }}</h1>
         <!-- <p>{{ notifications }}</p> -->
         <div class="flex flex-row justify-between border-b border-gray-200 dark:border-gray-700">
@@ -10,7 +10,7 @@
       </button>
     </div>
     
-        <UTable class="border rounded-md drop-shadow-md" :rows="notifications" :columns="columns">
+        <UTable v-if="notifications" class="border rounded-md drop-shadow-md" :rows="notifications" :columns="columns">
           <template #actions-data="{ row }">
           <UDropdown :items="items(row)">
             <UButton
@@ -26,13 +26,15 @@
           <div class="flex p-4 flex-row justify-between items-center gap-2 ">
            <button @click="isOpen=false" class="bg-red-600 p-2 hover:shadow-md w-full">Cancel</button> 
            <button @click="deleteNote" class="bg-green-600 p-2 hover:shadow-md w-full">Yes</button> 
-
           </div>
         </UModal>
     </div>
 </template>
 
 <script setup>
+const runTime = useRuntimeConfig()
+const apiUrl = runTime.public.apiBase
+const isMounted = ref(true)
  defineProps(
    {
      notifications: {
@@ -45,6 +47,10 @@
     },
   }
  )
+ onUnmounted(() => {
+  // Set isMounted to false when the component is about to be unmounted
+  isMounted.value = false;
+});
  const isOpen = ref(false)
  const currentId = ref(null)
  const columns = [ {
@@ -92,7 +98,7 @@ function deleteNotification (id){
 } 
 const deleteNote=  async  ()=>{
  
-  const {data: deleteData,error: deleteError} = await useFetch(`http://localhost:8080/notifications/delete/${currentId.value}`,{
+  const {data: deleteData,error: deleteError} = await useFetch(`${apiUrl}/notifications/delete/${currentId.value}`,{
   method:"DELETE",
   headers: {
                 "Content-Type": "application/json",

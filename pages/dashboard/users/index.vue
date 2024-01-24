@@ -8,8 +8,9 @@
 </template>
 
 <script setup>
-
-    const {data,pending,error,refresh} = useFetch('http://localhost:8080/users')
+const runTime = useRuntimeConfig()
+const apiUrl = runTime.public.apiBase
+const {data,pending,error,refresh} = useFetch(`${apiUrl}/users`)
 
 
 </script>

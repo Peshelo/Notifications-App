@@ -42,6 +42,8 @@
 </template>
 
 <script setup>
+const runTime = useRuntimeConfig()
+const apiUrl = runTime.public.apiBase
 const isOpen = ref(false)
 const title = ref('')
 const topic = ref('')
@@ -69,7 +71,7 @@ const addNotification = () => {
         scheduledTime: schedhuledTime.value
     }
     console.log(body)
-    fetch('http://localhost:8080/schedule', {
+    fetch(`${apiUrl}/schedule`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

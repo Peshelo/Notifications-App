@@ -65,6 +65,9 @@
 <script>
 import axios from 'axios'
 import {jwtDecode} from "jwt-decode";
+//Import api from runtimeConfig
+
+
 export default {
     layout:'auth',
     data(){
@@ -91,7 +94,7 @@ export default {
        // Your code for handling the login form submission
        this.loading = true;
        try{
-        await axios.post('http://localhost:8080/api/v1/auth/login',{
+        await axios.post(`${this.$config.apiBase}/api/v1/auth/login`, {
         email:this.email,
         password :this.password
         },{

@@ -9,7 +9,7 @@
         Refresh
       </button>
     </div>
-        <UTable class="border rounded-md drop-shadow-md" :rows="users" :columns="columns" />
+        <UTable v-if="users" class="border rounded-md drop-shadow-md" :rows="users" :columns="columns" />
     </div>
 </template>
 

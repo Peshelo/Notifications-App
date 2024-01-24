@@ -8,8 +8,9 @@
 </template>
 
 <script setup>
-
-   const {data,pending,error} = useFetch('http://localhost:8080/notifications')
+const runTime = useRuntimeConfig()
+const apiUrl = runTime.public.apiBase
+   const {data,pending,error} = useFetch(`${apiUrl}/notifications`)
 
 </script>
 
