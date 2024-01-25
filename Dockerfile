@@ -7,7 +7,7 @@ COPY package*.json ./
 
 # Add environment variables
 
-ENV BASE_URL=http://localhost:8080
+ENV BASE_URL=https://church-api-test.azurewebsites.net/
 
 
 # Install dependencies
